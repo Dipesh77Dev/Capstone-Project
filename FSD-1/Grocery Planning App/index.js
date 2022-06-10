@@ -2,6 +2,8 @@
 require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
+// const db = require('./models/item.js');
+const itemRouter = require('./routes/item.js');
 
 // Making App
 const app = express();
@@ -23,6 +25,9 @@ app.get('/', (req, res) => {
     res.send(`Server is running on localhost 5000`);
     console.log('Server is running on localhost 5000');
 });
+
+// calling routes api
+app.use('/grocery', itemRouter.router);
 
 // listening on port
 const port = process.env.PORT || 4000;
