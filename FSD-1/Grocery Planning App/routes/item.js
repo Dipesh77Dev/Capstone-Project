@@ -4,9 +4,10 @@ const router = require('express').Router();
 
 const itemController = require('../controller/item.js');
 
-router.post('/addItem', itemController.create);
-router.get('/getAllItem', itemController.find);
-router.put('/updatePurchaseStatus', itemController.update);
+router.post('/add', itemController.create);
+router.get('/getAll', itemController.find);
+router.put('/updatePurchaseStatus', itemController.updateOne);
+router.delete('/deleteGroceryItem', itemController.deleteOne);
 
 // module.exports = router;
 exports.router = router;
