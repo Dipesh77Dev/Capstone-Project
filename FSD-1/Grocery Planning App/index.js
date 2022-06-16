@@ -26,6 +26,13 @@ app.get('/', (req, res) => {
     console.log('Server is running on localhost 5000');
 });
 
+// using cors 2 This is due to the CORS policy on your Node server, as both the client and server are running on different ports they are considered different "origins". CORS is a mechanism that indicates the origin that is allowed access to resources on the server.
+
+const cors = require('cors');
+app.use(cors({
+    origin: 'http://localhost:3000'
+}))
+
 // calling routes api
 app.use('/grocery', itemRouter.router);
 

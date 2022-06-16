@@ -2,8 +2,8 @@
 const Item = require('../models/item.js');
 
 // save item data/insert item
-exports.create = (req, res) => {
-    const item = new Item({
+exports.create = async(req, res) => {
+    const item = await new Item({
         groceryItem : req.body.groceryItem,
         isPurchased : req.body.isPurchased
     })
@@ -17,8 +17,8 @@ exports.create = (req, res) => {
 };
 
 // get all the items
-exports.find = (req, res) => {
-    Item.find()
+exports.find = async(req, res) => {
+    await Item.find()
     .then(
         data => { res.send(data) }
     )
@@ -28,8 +28,8 @@ exports.find = (req, res) => {
 };
 
 // update the item status
-exports.updateOne = (req, res) => {
-    const updatedItem = new Item({
+exports.updateOne = async(req, res) => {
+    const updatedItem = await new Item({
         _id : req.body._id,
         isPurchased : req.body.isPurchased
     })
@@ -47,15 +47,11 @@ exports.updateOne = (req, res) => {
     )
 }
 
-exports.deleteOne =(req, res) => {
+exports.deleteOne = async (req, res) => {
     // res.json("deleteById")
-    Item.deleteOne(req.body)
+    await Item.deleteOne(req.body)
     .then(
         data => {
-            // if(!data){
-            //     res.send("No data has been found");
-            // }else{
-            // res.send(data + "documents deleted")
             res.json({"result" : "success"});
         }
     )
@@ -74,3 +70,34 @@ exports.deleteOne =(req, res) => {
 
 // db.collection.remove()
 // Delete a single document or all documents that match a specified filter.
+
+/*
+router.get('/', (req, res) => {
+    Item.find()
+        .sort({date: -1})
+        .then(items => res.json(items))
+});
+
+// @route   POST api/items
+//@desc     Create Item
+//@access   Public
+router.post('/', (req, res) => {
+    const newItem = new Item({
+        name: req.body.name
+    });
+
+    newItem.save()
+        .then(item => res.json(item));
+});
+
+// @route   DELETE api/items
+//@desc     DELETE Item
+//@access   Public
+router.delete('/:id', (req, res) => {
+    Item.findById(req.params.id)
+        .then(item => item.remove()
+            .then(() => res.json({success: true}))
+        )
+        .catch(err => err.status(404).json({success: false}));
+});
+*/
