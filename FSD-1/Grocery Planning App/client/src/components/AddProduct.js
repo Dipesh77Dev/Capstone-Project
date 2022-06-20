@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 
 const AddProduct = () => {
     const [groceryItem, setGroceryItem] = React.useState("");
@@ -16,6 +17,10 @@ const AddProduct = () => {
         result = await result.json();
         console.log(result);
     }
+
+    // useEffect(() => {
+    //     addProduct();
+    // },[])
     
     return(
         <>
