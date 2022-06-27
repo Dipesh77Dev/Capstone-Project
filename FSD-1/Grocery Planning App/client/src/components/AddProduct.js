@@ -6,11 +6,13 @@ const AddProduct = () => {
     const [isPurchased, setIsPurchased] = React.useState("");
 
     const addProduct = async() => {
-        console.log(groceryItem, isPurchased);
+        // console.log(groceryItem, isPurchased);
+        console.log(groceryItem);
         let result = await fetch("http://localhost:5000/grocery/add", { 
             method: "post",
             // body: { groceryItem }
-            body: JSON.stringify({ groceryItem, isPurchased }),
+            // body: JSON.stringify({ groceryItem, isPurchased }),
+            body: JSON.stringify({ groceryItem }),
             headers: { 'Content-Type': 'application/json'}
         });
 
@@ -20,18 +22,18 @@ const AddProduct = () => {
 
     // useEffect(() => {
     //     addProduct();
-    // },[])
+    // },[]) 
     
     return(
         <>
         <div> 
             <h1> Add Product </h1>
-            <input type="text" placeholder = "Add Shopping Item" value = {groceryItem} onChange = {(e) => {setGroceryItem(e.target.value)}}/><br />
-            <input type="text" placeholder = "Add Purchased Value" value = {isPurchased} onChange = {(e) => {setIsPurchased(e.target.value)}}/><br />
-            <button onClick= {addProduct} > Add Product </button>
+            <input type="text" placeholder = "Add Shopping Item" value = {groceryItem} onChange = {(e) => {setGroceryItem(e.target.value)}}/>
+            {/* <input type="text" placeholder = "Add Purchased Value" value = {isPurchased} onChange = {(e) => {setIsPurchased(e.target.value)}}/><br /> */}
+            <button onClick= {addProduct} > + </button>
         </div>
         </>
-    )
+    )   
 }
 
 export default AddProduct;

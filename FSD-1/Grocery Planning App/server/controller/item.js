@@ -28,16 +28,19 @@ exports.find = async(req, res) => {
 };
 
 // update the item status
-exports.updateOne = async(req, res) => {
+exports.update = async(req, res) => {
     const updatedItem = await new Item({
-        _id : req.body._id,
-        isPurchased : req.body.isPurchased
-    })
-    Item.updateOne(updatedItem) 
-    // Item.updateOne(req.body)
+        _id : req.body._id},
+        {$set:{isPurchased:req.body.isPurchased}}
+    )
+    Item.findByIdAndUpdate(updatedItem) 
+    // const update = await Item.findByIdAndUpdate({_id:req.params.id}, 
+    //     {$set:{isPurchased:req.body.isPurchased}}
+    //     )
     .then(
         data =>{
             res.json({"result" : "success"});
+            // res.send(updatedItem);
         }
     )
     .catch(
@@ -49,10 +52,10 @@ exports.updateOne = async(req, res) => {
 
 exports.deleteOne = async (req, res) => {
     // res.json("deleteById")
-    await Item.deleteOne(req.body)
+    const deleteData = await Item.deleteOne(req.params.id)
     .then(
         data => {
-            res.json({"result" : "success"});
+            res.json({"result" : "success"});  
         }
     )
     .catch(

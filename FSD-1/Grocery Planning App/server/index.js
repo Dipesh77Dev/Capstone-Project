@@ -8,8 +8,12 @@ const itemRouter = require('./routes/item.js');
 // Making App
 const app = express();
 
+// middleware
+app.use(express.json());
+
 // Bodyparser middleware
-app.use(express.json());  
+// const bodyParser=require('body-parser')
+// app.use(bodyParser.json())
 
 //mongoose connection 
 mongoose
@@ -32,6 +36,7 @@ const cors = require('cors');
 app.use(cors({
     origin: 'http://localhost:3000'
 }))
+// app.use(cors())
 
 // calling routes api
 app.use('/grocery', itemRouter.router);

@@ -6,7 +6,7 @@ const itemController = require('../controller/item.js');
 
 router.post('/add', itemController.create);
 router.get('/getAll', itemController.find);
-router.put('/updatePurchaseStatus', itemController.updateOne);
+router.put('/updatePurchaseStatus', itemController.update);
 router.delete('/deleteGroceryItem', itemController.deleteOne);
 
 // module.exports = router;
