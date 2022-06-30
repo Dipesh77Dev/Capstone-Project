@@ -29,26 +29,16 @@ exports.find = async(req, res) => {
 
 // update the item status
 exports.update = async(req, res) => {
-    const updatedItem = await new Item({
-        _id : req.body._id},
-        {$set:{isPurchased:req.body.isPurchased}}
-    )
-    Item.findByIdAndUpdate(updatedItem) 
-    // const update = await Item.findByIdAndUpdate({_id:req.params.id}, 
-    //     {$set:{isPurchased:req.body.isPurchased}}
-    //     )
-    .then(
-        data =>{
-            res.json({"result" : "success"});
-            // res.send(updatedItem);
+    try{ 
+        const update = await details.findByIdAndUpdate({_id:req.body.id}, 
+            {$set:{isPurchased:req.body.isPurchased}}
+            )
+        res.json({"result":"Success"});
         }
-    )
-    .catch(
-        err => {
-            res.status(500).send(err)
+        catch(err){
+            res.send(err)
         }
-    )
-}
+    }
 
 exports.deleteOne = async (req, res) => {
     // res.json("deleteById")
