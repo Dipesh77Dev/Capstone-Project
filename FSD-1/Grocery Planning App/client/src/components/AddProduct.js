@@ -15,7 +15,6 @@ const AddProduct = () => {
             body: JSON.stringify({ groceryItem }),
             headers: { 'Content-Type': 'application/json'}
         });
-
         result = await result.json();
         console.log(result);
     }

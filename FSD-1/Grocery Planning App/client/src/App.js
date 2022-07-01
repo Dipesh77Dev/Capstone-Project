@@ -1,13 +1,11 @@
 import './App.css';
-import { Header } from "./components/Header.js"
-import Box from "./components/Box.js";
+import Home from "./components/Home.js";
 
 function App() {
   return (
     <>
     {/* <h1> Hello World </h1> */}
-    {/* < Header/>  */}
-    < Box />
+    < Home />
     </>
   );
 }

@@ -28,7 +28,7 @@ exports.find = async(req, res) => {
 };
 
 // update the item status
-exports.update = async(req, res) => {
+exports.findByIdAndUpdate = async(req, res) => {
     try{ 
         const update = await details.findByIdAndUpdate({_id:req.body.id}, 
             {$set:{isPurchased:req.body.isPurchased}}
