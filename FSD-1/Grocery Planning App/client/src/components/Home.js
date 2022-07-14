@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useState, useEffect } from 'react';
-import UpdateDelete from '../components/UpdateDelete';
+import { UpdateDelete } from '../components/UpdateDelete';
 
 function Home() 
 {
@@ -125,12 +125,12 @@ function Home()
                 <button className='btn-warning mx-2 rounded' onClick={AddProduct}>+</button>
               </div>
               <ul style={{ listStyleType: 'none', margin: '0', padding: '0' }}>
-                {items.map((itemValue, index) => {
+                {groceryItem.map((itemValue, index) => {
                   return <UpdateDelete key={index}
                     data={itemValue}
                     text={itemValue.GroceryItem}
-                    onSelect={deleteItem}
-                    onUpdate={UpDateItems}
+                    onSelect={deleteProduct}
+                    onUpdate={updatePurchaseStatus}
                   />
                 })}
 
