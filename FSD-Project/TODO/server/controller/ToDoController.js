@@ -35,3 +35,5 @@ module.exports.deleteToDo = (req, res) => {
     .then( data => { res.json({"result":"Success"})})
     .catch((err) => console.log(err));
 }
+
+// if we dont put async/await in get it will give error

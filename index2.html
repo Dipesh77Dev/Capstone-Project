@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameters & Arguments </title>
+</head>
+<body>
+    <script>
+        function Table(){
+            for(i=0; i<5; i++){
+                document.write(`2 x ${i} = ${2*i}`);
+                document.write(`<br>`);
+            }
+            document.write(`<hr>`);
+        }
+
+        Table();
+
+        function Table2(){
+            for(i=0; i<5; i++){
+                document.write(`3 x ${i} = ${3*i}`);
+                document.write(`<br>`);
+            }
+        }
+
+        Table2(3); // we are passing the value so if we write here 3 so it will show the 3 table
+        document.write(`<br>`);
+        Table2(5);  // we are passing the value so if we write here 5 so it will show the 5 table
+        document.write(`<hr>`);
+
+        function Table3(num){
+            for(i=0; i<=5; i++){
+                document.write(`${num} x ${i} = ${num*i}`);
+                document.write(`<br>`);
+            }
+            document.write(`<br>`);
+        }
+
+        Table3(2); // we are passing the value so if we write here 2 so it will show the 3 table. so when we pass any value in parenthesis so it would be stored in one variable. so we should not define the variable like let,const, etc in our main function only give variable name.
+        // So when we define a function & give a name in parenthesis is called as parameter while declaration/function defination, & when we pass any value to that parameter is called an arguments while calling function.
+        Table3(5);  // we are passing the value so if we write here 5 so it will show the 3 table
+        // We made the num variable to store the data so when we call the function & gives argument like 2  & 5 so it will stored in num variable.
+        document.write(`<hr>`);
+    // alert("Number"); - Number is a string & passed as an argument, so when alert defination is written so there will be variable. So, alert has been passed as argument.
+    
+    const add = (num1, num2) => {
+        document.write(`num1` + `num2`);
+        // document.write($(num1) + $(num2));
+        document.write("<hr>");
+        document.write(num1 + num2);
+    }
+    add(5,7);
+
+    document.write("<hr>");
+    
+    // const add2 = (num1, num2, num3) => {
+    //     let num3 = num1 + num2;
+    //     document.write(num3);
+    // }
+    // add2(5,7);
+    </script>
+</body>
+</html>

@@ -55,7 +55,11 @@ const updateToDo = (_id, groceryItem, isPurchased) => {
   setIsPurchased(isPurchased);
 }
 
-const deleteToDo = (_id) => {
+const deleteToDo =  (_id) => {
+// axios.delete("http://localhost:5000/grocery/deleteGroceryItem", (_id, groceryItem, isPurchased) => {
+//   setGroceryItem(groceryItem);
+//   setIsPurchased(isPurchased);
+// })
   axios.delete("http://localhost:5000/grocery/deleteGroceryItem", { _id })
       .then((res) => console.log(res.data))
       // getToDo()

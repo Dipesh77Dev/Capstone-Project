@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Map, Filter </title>
+</head>
+<body>
+    <h1> Array Methods - map, filter, forEach </h1>
+    <script type="text/javascript">
+        let arr = [1,2,3,4,5];
+        arr.map(x => {
+            console.log(x); // 1,2,3,4,5
+        }) // we give an argument x, argument can be anything
+
+        arr.forEach(y => {
+            console.log(y); // 1,2,3,4,5
+        })
+
+        // Difference between map(Do iterate & also return a new array) & For Each(used for only iterate)
+        
+        let arr2 = arr.map(x => {
+            return x + 2; // 3,4,5,6,7 - it will itherate through every element & return the  new value & make a new array.
+        })
+        
+        let arr3 = arr.forEach(y => {
+            return y + 2;  // undefined - bcoz in forEach doesnt return anything given return is waste, forEach doesnt know what to do with return, it only used for iterating.
+        })
+
+        console.log(arr2, arr3);
+
+        // short Way for returning 1 statement: 
+        // let arr3 = arr.map - error bcoz we had already defined arr3;
+        // let arr4 = arr.map(y => x+3); 
+        let arr4 = arr.map(y => y+3); // refractor
+        let arr5 = arr.map(y => y+3).reverse(); // we can add multiple array methods by using dot
+        console.log(arr4, arr5); // (5) [4, 5, 6, 7, 8] (5) [8, 7, 6, 5, 4]
+
+        // filter also iterate, return, but it returns the value in certain condition filter = it filter the array by using condition
+        let arr6 = arr.filter(z => {
+            console.log(z); // 1,2,3,4,5
+            return z > 2;
+        })
+        console.log(arr6); // (3) [3, 4, 5]
+
+        let arr7 = arr.filter(z => z>=4);
+        console.log(arr7); // (2) [4, 5]
+
+        // forEach = only iterate through each items; Map = iterate through each item & use return statement for creating new array; Filter = iterate & use return statement for creating new array by using some condition
+
+        // using Map & filter;
+        let arr8 = arr.map(y=>y+2).filter(z=>z>5);
+        console.log(arr8); // (2) [6, 7]
+
+        let arr9 = arr.map(y=>y+2).filter(z=>z>5).reverse(); // we need to pass () - parenthesis bcoz its a method
+        console.log(arr9); // (2) [7, 6]
+
+        // let arr10 = arr.map(y=>y+2).filter(z=>z>=4).reverse().pop; 
+        let arr10 = arr.map(y=>y+2).filter(z=>z>5).reverse().pop(); 
+        console.log(arr10); // 6
+    </script>
+</body>
+</html>
